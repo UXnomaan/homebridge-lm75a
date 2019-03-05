@@ -1,26 +1,26 @@
 {
-  "name": "homebridge-lm75a",
-  "version": "0.0.6",
-  "description": "",
-  "main": "index.js",
-  "engines": {
-    "node": ">=6.12.2",
-    "homebridge": ">=0.4.33"
-  },
-  "keywords": [
-    "homebridge-plugin",
-    "homebridge",
-    "homekit",
-    "lm75",
-    "pi"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ahgharian/homebridge-lm75a.git"
-  },
-  "author": "Nomaan Ahgharian",
-  "license": "ISC",
-  "dependencies": {
-    "raspi-i2c": "^6.2.2"
-  }
+    "name": "homebridge-lm75a",
+    "version": "0.0.7",
+    "description": "",
+    "main": "index.js",
+    "engines": {
+        "node": ">=6.12.2",
+        "homebridge": ">=0.4.33"
+    },
+    "keywords": [
+        "homebridge-plugin",
+        "homebridge",
+        "homekit",
+        "lm75",
+        "pi"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ahgharian/homebridge-lm75a.git"
+    },
+    "author": "Nomaan Ahgharian",
+    "license": "ISC",
+    "dependencies": {
+        "raspi-i2c": "^6.2.2"
+    }
 }
