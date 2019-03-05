@@ -22,11 +22,11 @@ A Temperature plugin for [HomeBridge](https://github.com/nfarina/homebridge) to 
 
 ## Fields:
 
-- Accesory: must be "lm75a"
+- Accessory: must be "lm75a"
 - Name: can be anything
 - Unit: Temperature unit (c or f)
-- Frequncy: Seconds between each reading
-- Debug: if set to `ture` there will be logging for debugging purposes
+- Frequency: Seconds between each reading
+- Debug: if set to `true` there will be logging for debugging purposes
 
 ## GPIO:
 
