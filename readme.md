@@ -1,6 +1,6 @@
 ## homebridge-lm75a
 
-A Temprature plugin for [HomeBridge](https://github.com/nfarina/homebridge) to read from an [LM75A](http://www.ti.com/product/LM75A) sensor.
+A Temperature plugin for [HomeBridge](https://github.com/nfarina/homebridge) to read from an [LM75A](http://www.ti.com/product/LM75A) sensor.
 
 ## Installation
 
