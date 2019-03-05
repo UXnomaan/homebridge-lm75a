@@ -13,6 +13,7 @@ class LM75A {
     this.log = log;
     this.name = config.name;
     this.unit = config.unit;
+    this.debug = config.debug || false;
     this.frequency = config.frequency;
     this.lastChecked = (Date.now() / 1000) | 0;
     this.lastValue = null;
@@ -42,19 +43,21 @@ class LM75A {
       ) {
         reading = i2c.readByteSync(0x48);
         if (reading) {
-          switch (this.unit) {
-            case "f":
-              reading = reading * 1.8 + 32;
-            case "c":
-              // it's already in celsius
-              break;
-            case "k":
-              reading = reading + 273.15;
-              break;
-          }
+          // switch (this.unit) {
+          //     case 'f':
+          //         reading = reading * 1.8 + 32;
+          //     case 'c':
+          //         // it's already in celsius
+          //         break;
+          //     case 'k':
+          //         reading = reading + 273.15;
+          //         break;
+          // }
+          console.log(reading);
           this.lastValue = Math.round(reading);
         } else {
-          console.log("didn't get any reading, passing old value");
+          if (this.debug)
+            console.log("didn't get any reading, passing old value");
           reading = this.lastValue;
         }
         this.lastChecked = (Date.now() / 1000) | 0;
@@ -65,7 +68,7 @@ class LM75A {
         );
       }
     } catch (err) {
-      console.log("[LM75a]", err);
+      if (this.debug) console.log("[LM75a]", err);
     }
   }
 
@@ -74,10 +77,27 @@ class LM75A {
 
     informationService
       .setCharacteristic(Characteristic.Manufacturer, "Nomz Lab")
-      .setCharacteristic(Characteristic.Model, "LM75A Temperature Sensor")
-      .setCharacteristic(Characteristic.SerialNumber, "0000000");
+      .setCharacteristic(Characteristic.Model, "Temperature Sensor")
+      .setCharacteristic(Characteristic.SerialNumber, "LM75A");
 
     this.temperatureService = new Service.TemperatureSensor(this.name);
+
+    const TemperatureUnit = Object.freeze({
+      Celsius: "celsius",
+      Fahrenheit: "fahrenheit"
+    });
+
+    this.temperatureService
+      .getCharacteristic(Characteristic.TemperatureDisplayUnits)
+      .setProps({ unit: TemperatureUnit[this.unit] });
+
+    this.temperatureService
+      .getCharacteristic(Characteristic.CurrentTemperature)
+      .setProps({
+        minValue: -100,
+        maxValue: 100
+      });
+
     this.temperatureService
       .getCharacteristic(Characteristic.CurrentTemperature)
       .on("get", callback => {
