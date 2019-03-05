@@ -1,6 +1,8 @@
-## Installation
+## homebridge-lm75a
 
-A Temprature plugin for [https://github.com/nfarina/homebridge](HomeBridge) to read from an [http://www.ti.com/product/LM75A](LM75A) sensor.
+A Temprature plugin for [HomeBridge](https://github.com/nfarina/homebridge) to read from an [LM75A](http://www.ti.com/product/LM75A) sensor.
+
+## Installation
 
 1. Install homebridge `sudo npm install -g --unsafe-perm homebridge`
 2. Install this plugin with `npm install -g --unsafe-perm homebridge-lm75a`
@@ -29,3 +31,7 @@ A Temprature plugin for [https://github.com/nfarina/homebridge](HomeBridge) to r
 ## GPIO:
 
 TODO
+
+## Support
+
+Please create issue on github.
