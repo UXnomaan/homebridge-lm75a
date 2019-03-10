@@ -53,7 +53,7 @@ class LM75A {
           //         reading = reading + 273.15;
           //         break;
           // }
-          console.log(reading);
+          if (this.debug) console.log("current temp:", reading);
           this.lastValue = Math.round(reading);
         } else {
           if (this.debug)
